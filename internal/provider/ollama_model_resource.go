@@ -3,25 +3,20 @@ package provider
 import (
 	"context"
 	"fmt"
-	"github.com/hashicorp/terraform-plugin-log/tflog"
-	"github.com/ollama/ollama/api"
-	"sync"
-
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
+	"github.com/hashicorp/terraform-plugin-log/tflog"
+	"github.com/ollama/ollama/api"
 )
 
 // Ensure the implementation satisfies the expected interfaces.
 var (
 	_ resource.Resource              = &ollamaModelResource{}
 	_ resource.ResourceWithConfigure = &ollamaModelResource{}
-
-	wg = &sync.WaitGroup{}
 )
 
 func PullResponseFn(rsp api.ProgressResponse) error {
 	tflog.Debug(context.Background(), fmt.Sprintf("ollama Progress response: %#v", rsp))
-	wg.Done()
 	return nil
 }
 
@@ -96,7 +91,6 @@ func (r *ollamaModelResource) Create(ctx context.Context, req resource.CreateReq
 
 	tflog.Debug(ctx, fmt.Sprintf("model name: %s", plan.Name.String()))
 
-	wg.Add(1)
 	noStream := false
 	ollamaReq := &api.PullRequest{
 		Stream: &noStream,
@@ -110,7 +104,6 @@ func (r *ollamaModelResource) Create(ctx context.Context, req resource.CreateReq
 		)
 		return
 	}
-	wg.Wait()
 
 	diags = resp.State.Set(ctx, plan)
 	resp.Diagnostics.Append(diags...)
@@ -186,7 +179,6 @@ func (r *ollamaModelResource) Update(ctx context.Context, req resource.UpdateReq
 	}
 
 	// second pull new model
-	wg.Add(1)
 	noStream := false
 	ollamaReq := &api.PullRequest{
 		Stream: &noStream,
@@ -199,7 +191,6 @@ func (r *ollamaModelResource) Update(ctx context.Context, req resource.UpdateReq
 		)
 		return
 	}
-	wg.Wait()
 
 	// set new state
 	diags = resp.State.Set(ctx, plan)
