@@ -134,8 +134,8 @@ github.com/mitchellh/reflectwalk v1.0.2 h1:G2LzWKi524PWgd3mLHV8Y5k7s6XUvT0Gef6zx
 github.com/mitchellh/reflectwalk v1.0.2/go.mod h1:mSTlrgnPZtwu0c4WaC2kGObEpuNDbx0jmZXqmk4esnw=
 github.com/oklog/run v1.0.0 h1:Ru7dDtJNOyC66gQ5dQmaCa0qIsAUFY3sFpK1Xk8igrw=
 github.com/oklog/run v1.0.0/go.mod h1:dlhp/R75TPv97u0XWUtDeV/lRKWPKSdTuV0TZvrmrQA=
-github.com/ollama/ollama v0.1.31 h1:uhwPViTYq84sybYsvLRqBpzjm88cq6NxDW/T/W1Hq5o=
-github.com/ollama/ollama v0.1.31/go.mod h1:bIhCxCUYSCoV4MPSYF/rsmYHFZfNzayekC4iX5wpPv8=
+github.com/ollama/ollama v0.1.33 h1:Kb2bK4YxLJrRPNOaznwIYUoRYnT7AFOZioJKjreCM6E=
+github.com/ollama/ollama v0.1.33/go.mod h1:u9Bo9/pxhGe2YiL1I/ePNRTH0Ik5U3B2C/i2EYp1lZk=
 github.com/pjbgf/sha1cd v0.3.0 h1:4D5XXmUUBUl/xQ6IjCkEAbqXskkq/4O7LmGn0AqMDs4=
 github.com/pjbgf/sha1cd v0.3.0/go.mod h1:nZ1rrWOcGJ5uZgEEVL1VUM9iRQiZvWdbZjkKyFzPPsI=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
